@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+
+	<bean id="orgInfo" class="com.techie.info.OrgInfo" >
+	<property name="namesArr">
+	<array>
+	<value>Max</value>
+	<value>John</value>
+	<value>Michale</value>
+	<value>Michale</value>
+	</array>
+	</property>
+	
+	<property name="empNameList">
+	<list>
+	<value>Jacson</value>
+	<value>Shara</value>
+	<value>Miyara</value>
+	<value>Russel</value>
+	<value>MarkBrown</value>
+	</list>
+	</property>
+	
+	<property name="empNameSet">
+	<set>
+	<value>10826</value>
+	<value>87654</value>
+	<value>65433</value>
+	<value>987654</value>
+	<value>65433</value>
+	<value>876543</value>
+	</set>
+	</property>
+	</bean>
+</beans>

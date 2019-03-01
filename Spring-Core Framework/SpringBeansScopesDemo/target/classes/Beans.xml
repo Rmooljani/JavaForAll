@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="message" class="com.techie.model.Message" scope="prototype">
+<!-- 	<property name="messageId" value="111"></property>
+	<property name="message" value="Hello World"></property> -->
+	</bean>
+	
+	<alias name="message" alias="Msg1"/>
+	<alias name="message" alias="Msg2"/>
+	<alias name="message" alias="Msg3"/>
+</beans>
