@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <bean id="student1" class="com.techie.model.Student" >
+    <property name="studentId" value="123"></property>
+    <property name="studentName" value="Diggy George"></property>
+    <property name="email" value="diggy@hmail.com"></property>
+    <property name="gender" value="M"></property>
+    </bean>
+    
+     <bean id="student2" class="com.techie.model.Student" >
+    <property name="studentId" value="764"></property>
+    <property name="studentName" value="George Brown"></property>
+    <property name="email" value="gbrown@gmail.com"></property>
+    <property name="gender" value="M"></property>
+    </bean>
+    
+     <bean id="student3" class="com.techie.model.Student" >
+    <property name="studentId" value="865"></property>
+    <property name="studentName" value="Ramona Smith"></property>
+    <property name="email" value="rsmith@yahoo.com"></property>
+    <property name="gender" value="F"></property>
+    </bean>
+    
+     <bean id="student" class="com.techie.model.Student" >
+    <property name="studentId" value="123"></property>
+    <property name="studentName" value="Diggy George"></property>
+    <property name="email" value="diggy@hmail.com"></property>
+    <property name="gender" value="M"></property>
+    </bean>
+    
+     
+
+	<bean id="orgInfo" class="com.techie.info.OrgInfo" >
+	<property name="empAndNamemap">
+	<map>
+	<entry key="1099" value="KK"></entry>
+	<entry key="2346" value="Shawn"></entry>
+	</map>
+	</property>
+	
+	<property name="studentIdMap">
+	<map>
+	<entry key="123" value-ref="student1"></entry>
+	<entry key="764" value-ref="student2"></entry>
+	<entry key="865" value-ref="student3"></entry>
+	</map>
+	</property>
+	
+	</bean>
+</beans>
