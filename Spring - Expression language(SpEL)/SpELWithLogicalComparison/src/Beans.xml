@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:context="http://www.springframework.org/schema/context"
+     xmlns:p= "http://www.springframework.org/schema/p"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+    default-init-method="init" default-destroy-method="destroy">
+
+	<bean id="marksheet" class="com.techie.model.MarkSheet">
+	<property name="marksInMath" value="78"></property>
+	<property name="marksInPhysics" value="82"></property>
+	<property name="marksinEnglish" value="92"></property>
+	<property name="studentName" value="Mathew John"></property>
+	</bean>
+	
+	<bean id="marksheet1" class="com.techie.model.MarkSheet">
+	<property name="marksInMath" value="88"></property>
+	<property name="marksInPhysics" value="90"></property>
+	<property name="marksinEnglish" value="29"></property>
+	<property name="studentName" value="Mathew John"></property>
+	</bean>
+	
+	<bean id="examResult" class="com.techie.model.ExamResult">
+	<property name="hasCleared" value="#{(marksheet1.marksInMath>=30 and 
+	 marksheet1.marksInPhysics>=30 and marksheet1.marksinEnglish>=30 ?true:false)}"></property>
+	<property name="resultMessage" value="#{(marksheet1.marksInMath>=30 and 
+	 marksheet1.marksInPhysics>=30 and marksheet1.marksinEnglish>=30 ?passMessage:failMessage)}"></property>
+	</bean>
+	
+	<bean id="passMessage" class="java.lang.String">
+	<constructor-arg>
+	<value>Congratulations! You have cleared the examination...</value>
+	</constructor-arg>
+	</bean>
+	
+	<bean id="failMessage" class="java.lang.String">
+	<constructor-arg>
+	<value>SORRY! You have failed in the examination...</value>
+	</constructor-arg>
+	</bean>
+	
+</beans>

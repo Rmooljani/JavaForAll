@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:context="http://www.springframework.org/schema/context"
+     xmlns:p= "http://www.springframework.org/schema/p"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+    default-init-method="init" default-destroy-method="destroy">
+
+	<bean id="book1" class="com.techie.model.Book">
+	<property name="bookName" value="MyDreams"></property>
+	<property name="bookId" value="12345"></property>
+	</bean>
+	
+	<bean id="book2" class="com.techie.model.Book">
+	<property name="bookName" value="TheHeritage"></property>
+	<property name="bookId" value="76543"></property>
+	</bean>
+	
+	<bean id="book3" class="com.techie.model.Book">
+	<property name="bookName" value="PassionSpeaks"></property>
+	<property name="bookId" value="56953"></property>
+	</bean>
+	
+	<bean id="bookCollection" class="com.techie.model.BookCollection">
+	<property name="bookList">
+	<list>
+	<ref bean="book1"/>
+	<ref bean="book2"/>
+	<ref bean="book3"/>
+	</list>
+	</property>
+	</bean>
+	
+	<bean id="bookLibrary" class="com.techie.model.BookLibrary">
+	<property name="allBooks" value="#{bookCollection.bookList}"></property>
+	<property name="firstBook" value="#{bookCollection.getFirstBook()}"></property>
+	</bean>
+	
+</beans>
