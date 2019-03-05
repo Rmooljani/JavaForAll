@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+	default-init-method="init" default-destroy-method="destroy">
+
+	<bean id="telephoneDirectoryAccessor" class="com.techie.model.TelephoneDirectoryAccessor">
+	<constructor-arg name="telephoneNumber" value="#{telephoneDirectory['Mike']}"></constructor-arg>
+	</bean>
+
+	
+	<bean id="telephoneDirectory" class="java.util.HashMap">
+		<constructor-arg>
+			<map>
+				<entry key="Mike" value="9876567890"></entry>
+				<entry key="Russel" value="8756454839"></entry>
+				<entry key="Watsman" value="7656890432"></entry>
+				<entry key="Jordan" value="9763208156"></entry>
+				<entry key="Rihana" value="9988006789"></entry>
+				<entry key="Andrew" value="8760112300"></entry>
+				<entry key="Shawn" value="8633001678"></entry>
+			</map>
+		</constructor-arg>
+	</bean>
+
+	
+</beans>
