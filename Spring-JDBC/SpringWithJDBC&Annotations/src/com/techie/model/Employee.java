@@ -1,31 +1,11 @@
 package com.techie.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="employee_table")
 public class Employee {
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="EmployeeID")
 	private int empId;
-	
-	@Column(name="EmployeeName")
 	private String empName;
-	
-	@Column(name="EmployeeEmail")
 	private String email;
-	
-	@Column(name="EmployeeSalary")
 	private Integer salary;
-	
-	@Column(name="EmployeeGender")
 	private String gender;
 	
 	public int getEmpId() {

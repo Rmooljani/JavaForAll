@@ -10,6 +10,10 @@
 
     <context:annotation-config/>
     
+    <context:component-scan base-package="com.techie.dao.impl.EmployeeDaoImpl"></context:component-scan>
+    <context:component-scan base-package="com.techie.*"></context:component-scan>
+    <context:component-scan base-package="com.techie.service.impl.EmployeeServiceImpl"></context:component-scan>
+    
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
     <property name="driverClassName" value="${db.driverClassName}"></property>
     <property name="url" value="${db.url}"></property>
@@ -17,35 +21,10 @@
     <property name="password" value="${db.password}"></property>
     </bean>
     
-    <bean id="employeeService" class="com.techie.service.impl.EmployeeServiceImpl">
-    <property name="employeeDao" ref="employeeDao"></property>
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+    <constructor-arg name="dataSource" ref="dataSource"></constructor-arg>
     </bean>
-    
-    <bean id="employeeDao" class="com.techie.dao.impl.EmployeeDaoImpl">
-    <property name="hibernateTemplate" ref="hibernateTemplate"></property>
-    </bean>
-    
-    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
-    <constructor-arg name="sessionFactory" ref="sessionFactory"></constructor-arg>
-    </bean>
-    
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-    <property name="dataSource" ref="dataSource"></property>
-    <property name="annotatedClasses">
-    <array>
-    <value>com.techie.model.Employee</value>
-    </array>
-    </property>
-    <property name="hibernateProperties">
-    <props>
-    <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-    <prop key="hibernate.hbm2ddl.auto">create</prop>
-    <prop key="hibernate.show_sql">true</prop>
-    <prop key="hibernate.format_sql">true</prop>
-    </props>
-    </property>
-    </bean>
-    
+
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
     <property name="locations">
     <list>
